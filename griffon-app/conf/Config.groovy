@@ -9,7 +9,9 @@ log4j = {
 
     info   'griffon.util',
            'griffon.core',
-           'griffon.swing',
+           'griffon.@application.toolkit@',
            'griffon.app'
 }
 
+
+splash.image = 'jenkins_logo.png'

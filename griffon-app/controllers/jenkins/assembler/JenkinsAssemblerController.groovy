@@ -48,7 +48,7 @@ class JenkinsAssemblerController {
 
     def assemble = { evt ->
         if (!evt.source.selectedFile) return;
-        execSync {
+        execInsideUISync {
             view.pluginTable.enabled = false
         }
         resolveDependencies model.plugins, model.plugins.findAll { it.install }
@@ -77,7 +77,7 @@ class JenkinsAssemblerController {
             jar.close()
             dest.close()
         } finally {
-            execAsync {
+            execInsideUIAsync {
                 view.pluginTable.enabled = true
             }
         }

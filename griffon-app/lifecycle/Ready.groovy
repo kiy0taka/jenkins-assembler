@@ -11,7 +11,3 @@
  * - execAsync { // your code }
  * - execSync { // your code }
  */
-
-	
-    SplashScreen.getInstance().dispose()
-

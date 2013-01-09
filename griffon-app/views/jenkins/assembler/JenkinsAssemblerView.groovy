@@ -1,5 +1,7 @@
 package jenkins.assembler
 
+import org.jdesktop.swingx.JXSearchField
+
 import javax.swing.*
 import javax.swing.table.*
 import javax.swing.filechooser.*
@@ -65,12 +67,12 @@ application(title:'JenkinsAssembler',
         }
     }
 
-    sorter = new TableRowSorter(tableModel)
-    table.rowSorter = sorter
-    search = searchField(prompt:'Search plugins', constraints:NORTH, actionPerformed:{
+    sorter = table.rowSorter = new TableRowSorter(tableModel)
+    search = new JXSearchField()
+    widget(search, constraints:NORTH, actionPerformed: {
         sorter.rowFilter = {
             def plugin = model.plugins[it.identifier]
-            return "${plugin.name} ${plugin.displayName} ${plugin.wiki}".toLowerCase()
+            def r = "${plugin.name} ${plugin.displayName} ${plugin.wiki}".toLowerCase()
                 .indexOf(search.text.toLowerCase()) >= 0
         } as RowFilter
     })

@@ -18,7 +18,7 @@ import static griffon.util.GriffonApplicationUtils.*
 SwingBuilder.lookAndFeel((isMacOSX ? 'system' : 'nimbus'), 'gtk', ['metal', [boldFonts: false]])
 
 
-def splashScreen = SplashScreen.getInstance()
+/*def splashScreen = SplashScreen.getInstance()*/
 
 // Setting a splash image
 //URL url = this.class.getResource("mySplash.jpg")
@@ -26,6 +26,7 @@ def splashScreen = SplashScreen.getInstance()
 //
 // Setting Status Text
 // SplashScreen.getInstance().showStatus("Initializing the Controller")
-splashScreen.splash()
-splashScreen.waitForSplash()
+SplashGriffonAddon.display(app)
+/*splashScreen.splash()
+splashScreen.waitForSplash()*/
 
